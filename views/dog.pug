@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+  br
+  - var results = [{breed: "boxer", gender:"Male",age:5},{breed: "bulldog",gender:"Female",age:7},{breed: "Poodle",gender:"Male",age:10}];
+   div(class = "container-fluid")
+    div(class = "row")
+     each i,index in results
+        div(class="col-sm-4" onclick=`buy(${index})`) breed: #{i.breed} 
+        br
+        br 
+        div(class="col-sm-4" onclick=`buy(${index})`) gender: #{i.gender}
+        br
+        br  
+        div(class="col-sm-4" onclick=`buy(${index})`) age: #{i.age}
+        script.
+                function buy(itemNo){
+                    alert(`You purchased item ${itemNo+1}`)
+                }
+  
