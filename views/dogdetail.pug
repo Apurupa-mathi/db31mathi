@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+
+  if (toShow == null) 
+    h2 No instance to detail     
+  else
+    - let dogid = toShow._id
+    - let dog_breed = toShow.breed
+    - let doggender = toShow.gender
+    - let dogage = toShow.age
+    div
+      div.row
+        div(class='dogAttr mr-3') Dog ID is:
+        div #{dogid}
+        div.row
+        div(class='dogAttr mr-3') Dog Name is:
+        div #{dog_breed}
+        div.row
+        div(class='dogAttr mr-3') Dog gender is:
+        div #{doggender}
+        div.row
+        div(class='dogAttr mr-3') Dog age is:
+        div #{dogage}
