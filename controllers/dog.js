@@ -115,3 +115,30 @@ exports.dog_create_Page =  function(req, res) {
     } 
 }; 
 
+// Handle building the view for updating a dog. 
+// query provides the id 
+exports.dog_update_Page =  async function(req, res) { 
+    console.log("update view for item "+req.query.id) 
+    try{ 
+        let result = await dog.findById(req.query.id) 
+        res.render('dogupdate', { title: 'Dog Update', toShow: result }); 
+    } 
+    catch(err){ 
+        res.status(500) 
+        res.send(`{'error': '${err}'}`); 
+    } 
+}; 
+
+// Handle a delete one view with id from query 
+exports.dog_delete_Page = async function(req, res) { 
+    console.log("Delete view for id "  + req.query.id) 
+    try{ 
+        result = await dog.findById(req.query.id) 
+        res.render('dogdelete', { title: 'Dog Delete', toShow: 
+result }); 
+    } 
+    catch(err){ 
+        res.status(500) 
+        res.send(`{'error': '${err}'}`); 
+    } 
+}; 
